@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/user_transactions.dart';
 
+import './widgets/user_transactions.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
