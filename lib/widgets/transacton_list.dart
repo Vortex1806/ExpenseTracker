@@ -5,7 +5,8 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> _userTransactions = [
-    
+    Transaction(id: 't1', title: 'Petrol', amount: 300, date: DateTime.now()),
+    Transaction(id: 't2', title: 'Groceries', amount: 200, date: DateTime.now())
   ];
 
   @override
