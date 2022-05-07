@@ -50,6 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final List<Transaction> _userTransactions = [
+    Transaction(
+        id: 't3',
+        title: 'Books',
+        amount: 50,
+        date: DateTime.now().subtract(Duration(days: 1))),
     Transaction(id: 't1', title: 'Petrol', amount: 300, date: DateTime.now()),
     Transaction(id: 't2', title: 'Groceries', amount: 200, date: DateTime.now())
   ];
