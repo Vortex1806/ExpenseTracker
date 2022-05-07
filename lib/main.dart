@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/chart.dart';
 
@@ -18,10 +20,12 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.amber,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
-              titleMedium: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
+                subtitle1: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+                button: TextStyle(color: Colors.white),
+              ),
           // ignore: deprecated_member_use
           appBarTheme: AppBarTheme(
               titleTextStyle: TextStyle(
@@ -65,16 +69,21 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
         amount: txAmount,
-        date: DateTime.now());
+        date: chosenDate);
 
     setState(() {
       _userTransactions.add(newTx);
     });
+  }
+
+  void deleteTransction(){
+    
   }
 
   @override
