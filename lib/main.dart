@@ -4,7 +4,32 @@ import './widgets/new_transactions.dart';
 import './models/transaction.dart';
 import 'widgets/transacton_list.dart';
 
-void main() => runApp(MyHomePage());
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Expense Tracker',
+      home: MyHomePage(),
+      theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: 'Quicksand',
+          textTheme: ThemeData.light().textTheme.copyWith(
+              titleMedium: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          // ignore: deprecated_member_use
+          appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold))),
+    );
+  }
+}
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -24,8 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final List<Transaction> _userTransactions = [
-    Transaction(id: 't1', title: 'Petrol', amount: 300, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Groceries', amount: 200, date: DateTime.now())
+    // Transaction(id: 't1', title: 'Petrol', amount: 300, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'Groceries', amount: 200, date: DateTime.now())
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
@@ -44,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text(
+          'Expense Tracker',
+        ),
         actions: [
           IconButton(
               onPressed: () {
@@ -60,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.blue,
+                color: Theme.of(context).primaryColor,
                 child: Text('Chart!'),
                 elevation: 5,
               ),
